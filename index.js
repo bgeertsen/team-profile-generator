@@ -3,7 +3,7 @@ const inquirer = require('inquirer');
 const questions = [
     {
         type: 'input',
-        name: 'employeeName',
+        name: 'name',
         message: "What is the employee's name?"
     },
     {
@@ -21,14 +21,33 @@ const questions = [
         name: 'role',
         message: "What is the employee's role?",
         choices: ['Manager', 'Engineer', 'Intern']
+    },
+    {
+        type: 'input',
+        name: 'school',
+        message: "Enter the intern's school",
+        when: (answers) => answers.role === 'Intern'
+    },
+    {
+        type: 'input',
+        name: 'github',
+        message: "What is the engineer's GitHub username?",
+        when: (answers) => answers.role === 'Engineer'
+    },
+    {
+        type: 'input',
+        name: 'office',
+        message: "What is the manager's office number?",
+        when: (answers) => answers.role === 'Manager'
     }
 ]
 
 inquirer
-    .prompt([questions])
-    .then((answers) => {
-        console.log(answers);
+    .prompt(questions)
+    .then(answers => {
+        console.log(answers.name);
+        
     })
-    .catch((err) => {
-        console.log(err)
+    .catch(err => {
+        console.log(err);
     })
