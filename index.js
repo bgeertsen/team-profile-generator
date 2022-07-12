@@ -39,15 +39,27 @@ const questions = [
         name: 'office',
         message: "What is the manager's office number?",
         when: (answers) => answers.role === 'Manager'
+    },
+    {
+        type: 'confirm',
+        name: 'moreEmployees',
+        message: "Do you need to add any more employees?"
+
     }
 ]
 
-inquirer
+const app = () => {
+    return inquirer
     .prompt(questions)
     .then(answers => {
-        console.log(answers.name);
+        if(answers.moreEmployees) {
+            app();
+        }
         
     })
     .catch(err => {
         console.log(err);
     })
+}
+
+app();
