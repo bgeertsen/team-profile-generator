@@ -2,6 +2,9 @@ const inquirer = require('inquirer');
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
+const managerCard = require('./src/manager-card');
+const engineerCard = require('./src/engineer-card');
+const internCard = require('./src/intern-card')
 
 const answersArr = [];
 const questions = [
@@ -70,6 +73,8 @@ const app = () => {
                     const manager = new Manager(name, id, email, role, office)
 
                     console.log(`New manager object: ${JSON.stringify(manager)}`)
+                    let card = managerCard(manager.name, manager.id, manager.email, manager.officeNumber)
+                    console.log(card);
                 }
                 if (answersArr[i].role === "Engineer") {
                     //send to Engineer.js
@@ -77,6 +82,8 @@ const app = () => {
                     const engineer = new Engineer(name, id, email, role, github)
 
                     console.log(`New engineer object: ${JSON.stringify(engineer)}`)
+                    let card = engineerCard(engineer.name, engineer.id, engineer.email, engineer.github)
+                    console.log(card);
                 }
                 if (answersArr[i].role === "Intern") {
                     //send to Intern.js
@@ -84,11 +91,14 @@ const app = () => {
                     const intern = new Intern(name, id, email, role, school);
 
                     console.log(`New intern object: ${JSON.stringify(intern)}`)
+                    let card = internCard(intern.name, intern,id, intern.email, intern.school)
+                    console.log(card);
                 }
             }
         })
         .catch(err => {
             console.log(err)
         })
+
 }
 app();
