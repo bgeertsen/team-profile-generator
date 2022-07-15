@@ -25,6 +25,7 @@ Clone the repo, or download the zip file and extract. In the terminal run 'npm i
 After installation enter 'node index.js' in the terminal to run the app (see video).
 
 
+[team-profile-demo.webm](https://user-images.githubusercontent.com/62928419/179300627-af6431e0-c9e0-4052-8bdc-fae22a6ff593.webm)
 
 
 ## Contributing
