@@ -63,6 +63,7 @@ const app = function(){   inquirer
         .prompt(questions)
         .then(answers => {
             answersArr.push(answers);
+            // if more employees need to be added restart the question prompts
             if (answers.moreEmployees) {
                 app();
             }
@@ -75,42 +76,44 @@ const app = function(){   inquirer
             let cardArr = [];
             for (let i = 0; i < answersArr.length; i++) {
                 if (answersArr[i].role === "Manager") {
-                    // send to Manager.js
+                    // create a manager object
                     const { name, id, email, role, office } = answersArr[i]
                     const manager = new Manager(name, id, email, role, office)
 
-                    //console.log(`New manager object: ${JSON.stringify(manager)}`)
+                    //creates an html manager card
                     let card = managerCard(manager.name, manager.id, manager.email, manager.officeNumber)
+                    // adds the card to an array
                     cardArr.push(card)
-                    //console.log(cardArr);
                 }
                 if (answersArr[i].role === "Engineer") {
-                    //send to Engineer.js
+                    // create an engineer object
                     const { name, id, email, role, github } = answersArr[i];
                     const engineer = new Engineer(name, id, email, role, github)
 
-                    //console.log(`New engineer object: ${JSON.stringify(engineer)}`)
+                    //creates an html engineer card                 
                     let card = engineerCard(engineer.name, engineer.id, engineer.email, engineer.github)
-                    cardArr.push(card)
-                    //console.log(cardArr);
+                    cardArr.push(card)                  
                 }
                 if (answersArr[i].role === "Intern") {
-                    //send to Intern.js
+                    // create an intern object
                     const { name, id, email, role, school } = answersArr[i];
                     const intern = new Intern(name, id, email, role, school);
 
-                    //console.log(`New intern object: ${JSON.stringify(intern)}`)
+                    // creates an html intern card
                     let card = internCard(intern.name, intern.id, intern.email, intern.school)
                     cardArr.push(card)
                     
                 }
             }
+            // returns and array of html cards to be inserted into the page template
             return cardArr;
         })
         .then(array => {
+            //inserts the array of cards into the page template
             return pageTemp(array);
         })
         .then(content => {
+            // writes the finished product in the /dist folder
             fs.writeFile('./dist/index.html', content, err => {
                 console.error(err)
             })
