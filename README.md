@@ -16,8 +16,7 @@ Generator to create a work team html page
 
 ## Installation
 
-Clone the repo, or download the zip file and extract. In the terminal run 'npm i' and that's all!
-(video in next section covers installation and a usage demo)
+Clone the repo, or download the zip file and extract the files. In the terminal run 'npm i' and that's all!
 
 
 ## Usage 
@@ -25,7 +24,8 @@ Clone the repo, or download the zip file and extract. In the terminal run 'npm i
 After installation enter 'node index.js' in the terminal to run the app (see video).
 
 
-[team-profile-demo.webm](https://user-images.githubusercontent.com/62928419/179300627-af6431e0-c9e0-4052-8bdc-fae22a6ff593.webm)
+
+[team-profile-demo.webm](https://user-images.githubusercontent.com/62928419/179317429-50b6d0c4-eaf3-4176-a2ce-0dd977d56f77.webm)
 
 
 ## Contributing
