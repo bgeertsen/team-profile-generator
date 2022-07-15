@@ -16,22 +16,24 @@ Generator to create a work team html page
 
 ## Installation
 
-clone repo, run 'npm i'
+Clone the repo, or download the zip file and extract. In the terminal run 'npm i' and that's all!
+(video in next section covers installation and a usage demo)
 
 
 ## Usage 
 
-enter node index to fill out prompt info for your page
+After installation enter 'node index.js' in the terminal to run the app (see video).
+
+
 
 
 ## Contributing
 
 Feel free to reach out with any suggestions
 
-## Credits
+## Tests
 
-
-
+Current tests make sure that each file in /lib creates and employee object.
 
 ## Questions
 
