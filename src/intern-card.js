@@ -1,6 +1,6 @@
 const internCard = (name, id, email, school) => {
     return `
-    <div class="card p-0 m-3 col-lg-3 col-md-6" >
+    <div class="card p-0 m-3 col-lg-3 col-md-5" >
         <div class="card-body bg-primary">
             <h5 class="card-title text-white">${name}</h5>
             <h6 class="card-subtitle mb-2 text-white">Intern</h6>

@@ -11,7 +11,7 @@ const engineerCard = (name, id, email, github) => {
                     <li class="list-group-item">ID: ${id}</li>
                     <li class="list-group-item">
                     Email: <a href = "mailto:${email}?body = Message">${email}</a></li>
-                    <li class="list-group-item">GitHub: <a href="https://github.com/${github}">${github}</a></li>
+                    <li class="list-group-item">GitHub: <a href="https://github.com/${github}" target="_blank">${github}</a></li>
                 </ul>
             </div>
         </div>
