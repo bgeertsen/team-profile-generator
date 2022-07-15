@@ -22,6 +22,7 @@ clone repo, run 'npm i'
 ## Usage 
 
 enter node index to fill out prompt info for your page
+[team-profile-demo.webm](https://user-images.githubusercontent.com/62928419/179299542-090a5e46-beff-4dcb-b539-d2a3e0daec04.webm)
 
 
 ## Contributing
