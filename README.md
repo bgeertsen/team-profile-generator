@@ -16,7 +16,7 @@ Generator to create a work team html page
 
 ## Installation
 
-Clone the repo, or download the zip file and extract. In the terminal run 'npm i' and that's all!
+Clone the repo, or download the zip file and extract the files. In the terminal run 'npm i' and that's all!
 (video in next section covers installation and a usage demo)
 
 
