@@ -1,3 +1,7 @@
+
+let pageTemp = function(array) {
+
+return `
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,13 +19,15 @@
         <h1 class="text-white">My Team</h1>
     </header>
     <div class="d-flex justify-content-center align-items-center m-3">
-        <div class="row d-flex justify-content-around align-items-center">
+        <div id="card-container" class="row d-flex justify-content-around align-items-center">
 
-
+        ${array.join('')}
 
         </div>
     </div>
-
 </body>
 
 </html>
+`}
+
+module.exports = pageTemp;

@@ -5,8 +5,11 @@ const Intern = require('./lib/Intern');
 const managerCard = require('./src/manager-card');
 const engineerCard = require('./src/engineer-card');
 const internCard = require('./src/intern-card')
+const pageTemp = require('./src/page-builder')
+const fs = require('fs')
 
 const answersArr = [];
+
 const questions = [
     {
         type: 'input',
@@ -55,50 +58,68 @@ const questions = [
     }
 ]
 
-const app = () => {
-    return inquirer
+
+const app = function(){   inquirer
         .prompt(questions)
         .then(answers => {
             answersArr.push(answers);
             if (answers.moreEmployees) {
                 app();
             }
+            else{
+                console.log("Html generated! Find it in /dist!")
+            }
             return answersArr
         })
         .then(answersArr => {
+            let cardArr = [];
             for (let i = 0; i < answersArr.length; i++) {
                 if (answersArr[i].role === "Manager") {
                     // send to Manager.js
                     const { name, id, email, role, office } = answersArr[i]
                     const manager = new Manager(name, id, email, role, office)
 
-                    console.log(`New manager object: ${JSON.stringify(manager)}`)
+                    //console.log(`New manager object: ${JSON.stringify(manager)}`)
                     let card = managerCard(manager.name, manager.id, manager.email, manager.officeNumber)
-                    console.log(card);
+                    cardArr.push(card)
+                    //console.log(cardArr);
                 }
                 if (answersArr[i].role === "Engineer") {
                     //send to Engineer.js
                     const { name, id, email, role, github } = answersArr[i];
                     const engineer = new Engineer(name, id, email, role, github)
 
-                    console.log(`New engineer object: ${JSON.stringify(engineer)}`)
+                    //console.log(`New engineer object: ${JSON.stringify(engineer)}`)
                     let card = engineerCard(engineer.name, engineer.id, engineer.email, engineer.github)
-                    console.log(card);
+                    cardArr.push(card)
+                    //console.log(cardArr);
                 }
                 if (answersArr[i].role === "Intern") {
                     //send to Intern.js
                     const { name, id, email, role, school } = answersArr[i];
                     const intern = new Intern(name, id, email, role, school);
 
-                    console.log(`New intern object: ${JSON.stringify(intern)}`)
-                    let card = internCard(intern.name, intern,id, intern.email, intern.school)
-                    console.log(card);
+                    //console.log(`New intern object: ${JSON.stringify(intern)}`)
+                    let card = internCard(intern.name, intern.id, intern.email, intern.school)
+                    cardArr.push(card)
+                    
                 }
             }
+            return cardArr;
+        })
+        .then(array => {
+            return pageTemp(array);
+        })
+        .then(content => {
+            fs.writeFile('./dist/index.html', content, err => {
+                console.error(err)
+            })
+            
         })
         .catch(err => {
             console.log(err)
         })
 
 }
-app();
+app()
+

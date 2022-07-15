@@ -11,7 +11,7 @@ const mangerCard = (name, id, email, office) => {
             <div class="card w-auto p-3" >
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">ID: ${id}</li>
-                    <li class="list-group-item">Email: ${email}</li>
+                    <li class="list-group-item">Email: <a href = "mailto:${email}?body = Message">${email}</a></li>
                     <li class="list-group-item">Office number: ${office}</li>
                 </ul>
             </div>
