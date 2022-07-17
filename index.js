@@ -65,6 +65,7 @@ const app = function(){   inquirer
             answersArr.push(answers);
             // if more employees need to be added restart the question prompts
             if (answers.moreEmployees) {
+                console.log("Ignore the 'null' and continue to type employee's name!")
                 app();
             }
             else{
